@@ -2,7 +2,6 @@ package main;
 import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.JOptionPane;
-import java.util.Scanner;
 
 public class TeamManager {
 
@@ -14,7 +13,7 @@ public class TeamManager {
         Team currentTeam = new Team(city, teamName);
 
         int choice = 0;
-        String[] options = {"Add a player", "Get a player's stats"};
+        String[] options = {"Add a player", "Get a player's stats", "View roster"};
 
         while (choice != -1)
         {
@@ -28,6 +27,11 @@ public class TeamManager {
             if (choice == 1)
             {
                 currentTeam.getStats();
+            }
+
+            if (choice == 2)
+            {
+                currentTeam.printRoster();
             }
         }
     }

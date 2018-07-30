@@ -2,7 +2,6 @@ package main;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Team {
 
@@ -38,6 +37,14 @@ public class Team {
 
         Player newPlayer = new Player (firstName, lastName, playerPos, points, assists, rebounds, blocks);
         roster.add(newPlayer);
+    }
+
+    public void printRoster()
+    {
+        for (int i = 0; i < roster.size(); i++)
+        {
+            System.out.println(roster.get(i).position + " " + roster.get(i).firstName + " " + roster.get(i).lastName);
+        }
     }
 
     public void getStats()
@@ -107,5 +114,5 @@ public class Team {
         }
         return -1;
     }
-    
+
 }
