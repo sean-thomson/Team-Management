@@ -3,15 +3,17 @@ package main;
 public class Player {
     String firstName;
     String lastName;
+    String position;
     private double pointsPerGame;
     private double assistsPerGame;
     private double reboundsPerGame;
     private double blocksPerGame;
 
-    public Player (String first, String last, double points, double assists, double rebounds, double blocks)
+    public Player (String first, String last, String pos, double points, double assists, double rebounds, double blocks)
     {
         firstName = first;
         lastName = last;
+        position = pos;
         pointsPerGame = points;
         assistsPerGame = assists;
         reboundsPerGame = rebounds;
