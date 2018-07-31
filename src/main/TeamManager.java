@@ -6,9 +6,19 @@ import javax.swing.JOptionPane;
 public class TeamManager {
 
     public static void main(String[] args) {
-        String city = JOptionPane.showInputDialog("Input team's city");
+        String city;
+        do {
+            city = JOptionPane.showInputDialog("Input team's city");
+            if (city == null)
+                return;
+        } while (city.trim().isEmpty());
 
-        String teamName = JOptionPane.showInputDialog("Input team name");
+        String teamName;
+        do {
+            teamName = JOptionPane.showInputDialog("Input team name");
+            if (teamName == null)
+                return;
+        } while (teamName.trim().isEmpty());
 
         Team currentTeam = new Team(city, teamName);
 

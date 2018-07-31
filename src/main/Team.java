@@ -16,23 +16,56 @@ public class Team {
 
     public void addPlayer()
     {
-        String firstName = JOptionPane.showInputDialog("Input player's first name");
+        String firstName;
+        do {
+            firstName = JOptionPane.showInputDialog("Input player's first name");
+            if (firstName == null)
+                return;
+        } while (firstName.trim().isEmpty());
 
-        String lastName = JOptionPane.showInputDialog("Input player's last name");
+        String lastName;
+        do {
+            lastName = JOptionPane.showInputDialog("Input player's last name");
+            lastName.trim();
+            if (lastName == null)
+                return;
+        } while (lastName.trim().isEmpty());
 
         String[] positions = {"PG", "SG", "SF", "PF", "C"};
         String playerPos = (String) JOptionPane.showInputDialog(null, "Choose player's position", "Player Position", JOptionPane.QUESTION_MESSAGE, null, positions, positions[0]);
+        if (playerPos == null)
+            return;
 
-        String pointsString = JOptionPane.showInputDialog("Input player's points per game");
+        String pointsString;
+        do {
+            pointsString = JOptionPane.showInputDialog("Input player's points per game");
+            if (pointsString == null)
+                return;
+        } while (!pointsString.matches("[0-9]+") || pointsString.trim().isEmpty());
         double points = Double.parseDouble(pointsString);
 
-        String assistsString = JOptionPane.showInputDialog("Input player's assists per game");
+        String assistsString;
+        do {
+            assistsString = JOptionPane.showInputDialog("Input player's assists per game");
+            if (assistsString == null)
+                return;
+        } while (!assistsString.matches("[0-9]+") || assistsString.trim().isEmpty());
         double assists = Double.parseDouble(assistsString);
 
-        String reboundsString = JOptionPane.showInputDialog("Input player's rebounds per game");
+        String reboundsString;
+        do {
+            reboundsString = JOptionPane.showInputDialog("Input player's rebounds per game");
+            if (reboundsString == null)
+                return;
+        } while (!reboundsString.matches("[0-9]+") || reboundsString.trim().isEmpty());
         double rebounds = Double.parseDouble(reboundsString);
 
-        String blocksString = JOptionPane.showInputDialog("Input player's blocks per game");
+        String blocksString;
+        do {
+            blocksString = JOptionPane.showInputDialog("Input player's blocks per game");
+            if (blocksString == null)
+                return;
+        } while (!blocksString.matches("[0-9]+") || blocksString.trim().isEmpty());
         double blocks = Double.parseDouble(blocksString);
 
         Player newPlayer = new Player (firstName, lastName, playerPos, points, assists, rebounds, blocks);
@@ -41,9 +74,15 @@ public class Team {
 
     public void printRoster()
     {
-        for (int i = 0; i < roster.size(); i++)
+        if (roster.size() == 0)
         {
-            System.out.println(roster.get(i).position + " " + roster.get(i).firstName + " " + roster.get(i).lastName);
+            System.out.println("No players on roster");
+        }
+
+        else {
+            for (int i = 0; i < roster.size(); i++) {
+                System.out.println(roster.get(i).position + " " + roster.get(i).firstName + " " + roster.get(i).lastName);
+            }
         }
     }
 
