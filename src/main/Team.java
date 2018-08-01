@@ -1,9 +1,10 @@
 package main;
 import javax.swing.JOptionPane;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Team {
+public class Team implements Serializable {
 
     public String fullTeamName;
     List<Player> roster;
